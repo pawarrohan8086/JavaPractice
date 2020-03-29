@@ -1,0 +1,90 @@
+package com.rs.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/furl")
+public class FirstServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+			String name=request.getParameter("name");
+			String adhar=request.getParameter("adhar");
+			
+			response.setContentType("text/html");
+			PrintWriter out=response.getWriter();
+			
+		
+			Cookie c2=new Cookie("c2", adhar);
+			Cookie c1=new Cookie("c1", name);
+			
+			response.addCookie(c1);
+			response.addCookie(c2);
+			
+			out.println("<!DOCTYPE html>\r\n" + 
+					"<html>\r\n" + 
+					"<head>\r\n" + 
+					"<meta charset=\"ISO-8859-1\">\r\n" + 
+					"<title>Enter records</title>\r\n" + 
+					"</head>\r\n" + 
+					"<body bgcolor='cyan'>" + 
+					"	<br>\r\n" + 
+					"	<br>\r\n" + 
+					"	<br>\r\n" + 
+					"	<br>\r\n" + 
+					"	<br>\r\n" + 
+					"	<br>\r\n" + 
+					"	<br>\r\n" + 
+					"	<br>\r\n" + 
+					"		\r\n" + 
+					"<form action=\"surl\">\r\n" + 
+					"	<center>\r\n" + 
+					"\r\n" + 
+					"	<br>\r\n" + 
+					"	<br>\r\n" + 
+					"	<br>\r\n" + 
+					"	<br>\r\n" + 
+					"		<table>\r\n" + 
+					"			<tr>\r\n" + 
+					"			<th>\r\n" + 
+					"				Total Income :\r\n" + 
+					"			</th>\r\n" + 
+					"			<td>\r\n" + 
+					"				<input type=\"text\" name=\"income\" required=\"required\">\r\n" + 
+					"			</td>\r\n" + 
+					"			<th><td></td></th>\r\n" + 
+					"			<th>\r\n" + 
+					"				Tax :\r\n" + 
+					"			</th>\r\n" + 
+					"			<td>\r\n" + 
+					"				<input type=\"text\" name=\"tax\" required=\"required\">\r\n" + 
+					"			</td>\r\n" + 
+					"			</tr>\r\n" + 
+					"		</table>\r\n" + 
+					"		<br>\r\n" + 
+					"		<br>\r\n" + 
+					"		<br>\r\n" + 
+					"		<input type=\"submit\" value=\"Submit\">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href=\"Tax.html\">Home</a>\r\n" + 
+					"	</center>\r\n" + 
+					"</form>\r\n" + 
+					"</body>\r\n" + 
+					"</html>");
+			
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

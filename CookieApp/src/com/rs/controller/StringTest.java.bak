@@ -1,0 +1,22 @@
+import java.util.Scanner;
+class StringTest 
+{
+	public static void main(String[] args) 
+	{
+		int i=0;
+		String s1=null;
+		String s[]={"rohan","pawar"};
+		while(i!=s.length){
+			if(i==0){
+			s1=s[0];
+			}else
+			{
+				s1=s1+","+s[i];
+			}
+		i++;
+		}
+				
+
+		
+	}
+}
